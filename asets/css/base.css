@@ -1,0 +1,393 @@
+:root {
+    --primary-color: #EE4D2D;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #666;
+    --border-color: #dbdbdb;
+
+    --header-height: 140px;
+    --navbar-height: 34px;
+    --header-width-search-height: calc(var(--header-height) - var(--navbar-height));
+    
+}
+
+* {
+   
+    /* inherit: kế thừa cái thẻ chứa nó  */
+    box-sizing: inherit;  
+}
+
+html {
+    /* HACK */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;  
+    /* sans-serif là chủng chữ mặc định không có chân */
+    box-sizing: border-box;
+}
+
+/* Responsive */
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto; 
+}
+
+.grid__full-width {
+    width: 100%;
+ 
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* Test */
+.grid__colum-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%; 
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+    text-decoration: auto;
+}
+
+.grid__colum-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3332%;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        
+    
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    
+    }
+
+}
+
+
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    animation: fadeIn linear 1s;
+}
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    
+    --growth-from:0.7;
+    --growth-to:1;
+    position: relative;
+    margin: auto;
+    /* z-index:  Ông nào có thuộc tính cao nhất thì ông đấy sẽ nằm trên log cao nhất  0 < 1 thì sẽ ưu tiên 1 */
+    z-index: 1;
+    animation: growth linear 0.1s;
+
+}
+
+.btn {
+    min-width: 142px;
+    height: 36px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 2px;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--text-color);
+    align-items: center;
+    
+}
+
+.btn.btn-normal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.btn-normal{
+    margin-right: 8px;
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}   
+
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+}
+
+.auth-form__socials--google {
+    background-color: var(--white-color);
+}
+
+/* Select input */
+
+.select-input {
+    position: relative;
+     min-width: 165px;
+     height: 34px;
+     background-color: var(--white-color);
+     border-radius: 2px;
+     display: flex;
+     justify-content: space-between;
+     padding: 12px 12px;
+     align-items: center;
+     margin-right: 16px;
+     z-index: 1;
+}   
+
+.select-input__label {
+    font-size: 1.4rem;
+    color: rgb(112, 108, 108);
+
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+
+.select-input-list {
+    position: absolute;
+    top: 73%;
+    right: 0;
+    left: 0;
+    background-color: var(--white-color);
+    padding-left: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    display: none;
+}
+
+.select-input:hover .select-input-list {
+    display: block;
+}
+
+.select-input__item {
+    list-style: none;
+    padding: 12px 11px;
+}   
+
+.select-input__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 0;
+}   
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+/* --------- */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    
+}
+
+.home-product-pagination__item {
+    margin: 46px 0 32px 0
+}
+.pagintion-items {
+    margin: 0 20px;
+}
+.pagination-item__link {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #a69e9e;
+
+}
+
+.pagination-item__link-primary {
+    padding: 3px 12px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 2px;
+}
+
+.pagination-item__icon {
+    padding: 16px;
+}
+
+/* code-footer------------------- */
+
+/* coder footer */
+.footer {
+    border-top: 4px solid #ccc;
+}
+
+.foter_grid-flex {
+    display: flex;
+}
+
+.footer__heading {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 47px 0 22px;
+}
+
+.footer-list {
+    padding-left: 0;
+}
+
+.foter-item {
+    list-style: none;
+    padding: 6px 0;
+}
+
+.foter-item__link {
+    color: #585858;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.foter-item__link:hover {
+    color: var(--primary-color);
+}
+
+.foter-item__icon  {
+    font-size: 2rem;
+    margin-right: 4px;
+    position: relative;
+    top: 3px;
+}
+
+.foooter-pay {
+    margin: 10px;
+    
+}
+
+.footer-pay-visa {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+}
+.footer-pay-jcb {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+}
+.footer-pay-tragop {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.footer-pay-later {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.footer-pay-americar {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.footer-pay-cold {
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.footer__download {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__download-qr {
+    padding: 0.25rem;
+    background-color: #e7e1e1;
+    box-shadow: 0 0 1px #e6e0e0;
+    margin-right: 16px;
+}
+
+.footer__download-apps {
+    font-size: 1.4rem;
+    height: 40px;
+}
+
+.footer__dowmload-appstore {
+    padding: 5px 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgb(71, 71, 70);
+}
+
+.footer__download-appgoogleplay {
+    padding: 5px 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgb(52, 52, 50);
+
+}
+
+.footer__download-appgallery {
+    padding: 5px 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 2px rgb(52, 52, 50);
+
+}
+
+/* footer end */
+
+.footer-end {
+    background-color: #F5F5F5;
+}
+
+
+.footer-end-list {
+    display: flex;
+}
+
+.footer-end-img_link{
+    font-size: 10px;
+}
